@@ -36,6 +36,27 @@ def parttwo(input):
     result *= possiblewins
     print(result)
 
+def parttwo_minmax(input):
+    with open(input, 'r') as fp:
+        lines = fp.read().split('\n')
+
+    times = int(lines[0].replace(' ', ''))
+    records = int(lines[1].replace(' ', ''))
+
+    result = 1
+    possiblewins = 0 
+
+    for j in range(1, times):
+        distance = j*(times-j)
+        if distance > records:
+            max_val = j
+
+    for j in range(times, 1, -1):
+        distance = j*(times-j)
+        if distance > records:
+            min_val = j
+    
+    print(max_val-min_val+1)
 
 
 def parttwo_quadratic(input):
@@ -54,4 +75,5 @@ def parttwo_quadratic(input):
 
 partone('test')
 parttwo('input')
+parttwo_minmax('input')
 parttwo_quadratic('input')
